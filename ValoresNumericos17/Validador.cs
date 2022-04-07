@@ -11,8 +11,6 @@ namespace ValoresNumericos17
 
         public static decimal PedirDecimal(string mensaje)
         {
-
-            
             decimal valor;
             bool valido = false;
 
