@@ -8,40 +8,34 @@ namespace ValoresNumericos17
 {
     public class Validador
     {
-
-        public static decimal PedirDecimal(string mensaje)
+        public static decimal PedirNumeroDecimal(string mensaje)
         {
+            
             decimal valor;
+            
             bool valido = false;
 
-            Console.WriteLine(mensaje);
-            string mensajeDos = mensaje.Replace('.', ',');
-            mensajeDos = Console.ReadLine();
-            bool ok = decimal.TryParse(mensajeDos, out valor);
+            /*string opcion = mensaje.Replace('.', ',');*/
 
+            string mensajeDos = "\n Si va a ingresar un número decimal ingrese una " + "*,*" + " en vez de " + "*.*" 
+                                 + " \n Recuerde que de no hacerlo el sistema lo tomará como un número ENTERO";
             string mensajeError = "\n El valor no puede ser vacio y tiene que estar entre el rango del Menu solicitado. ";
 
             do
             {
 
+                Console.WriteLine(mensaje);
+                Console.WriteLine(mensajeDos);
 
-                if (!ok)
+                if (!decimal.TryParse(Console.ReadLine(), out valor))
                 {
                     Console.Clear();
+                    Console.WriteLine("\n");
                     Console.WriteLine(mensajeError);
-                    return PedirDecimal(mensaje);
                 }
-                else if (valor < 1)
-                {
-                    Console.Clear();
-                    Console.WriteLine(mensajeError);
-                    return PedirDecimal(mensaje);
-                }
-               
                 else
                 {
                     valido = true;
-
                 }
 
             } while (!valido);
@@ -49,15 +43,7 @@ namespace ValoresNumericos17
             return valor;
         }
 
-        public static void MostrarDecimal(decimal numero)
-        {
-
-            Console.WriteLine("\n Usted escribio " + "*" + numero + "*");
-
-        }
-
-
-
+  
         public static void Despedida()
         {
 

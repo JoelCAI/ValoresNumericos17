@@ -10,21 +10,41 @@ namespace ValoresNumericos17
     {
         public void MenuPrincipal()
         {
-            decimal cadenaUno;
+            decimal numeroUno;
+            decimal numeroDos;
+
+            
 
             Validador.Bienvenida();
 
-            cadenaUno = Validador.PedirDecimal("\n Ingrese un valor numérico.");
+            numeroUno = Validador.PedirNumeroDecimal("\n Ingrese el primero valor numérico.");
 
-            Validador.MostrarDecimal(cadenaUno);
+            Console.Clear();
+            numeroDos = Validador.PedirNumeroDecimal("\n Ingrese el segundo valor numérico.");
 
-            int dos = 2;
+  
+            decimal suma = numeroUno + numeroDos;
+            decimal resta = numeroUno - numeroDos;
+            decimal multiplicacion = numeroUno * numeroDos;
+            decimal division = numeroUno / numeroDos;
+            decimal resto = numeroUno % numeroDos;
 
-            decimal suma = cadenaUno + dos;
+            double numeroUnoPotencia = Convert.ToDouble(numeroUno);
+            double numeroDosPotencia = Convert.ToDouble(numeroDos);
 
-            Console.WriteLine("La suma es: " + suma);
+            double potencia = Math.Pow(numeroUnoPotencia, numeroDosPotencia);
 
-            
+            Console.Clear();
+            Console.WriteLine(" \n La suma de *" + numeroUno + "* más" + " *" + numeroDos + "* es: *" + suma + "*");
+            Console.WriteLine(" \n La Resta de *" + numeroUno + "* menos" + " *" + numeroDos + "* es: *" + resta + "*");
+            Console.WriteLine(" \n La Multiplicación de *" + numeroUno + "* por" + " *" + numeroDos + "* es: *" + multiplicacion + "*");
+            Console.WriteLine(" \n La División de *" + numeroUno + "* entre" + " *" + numeroDos + "* es: *" + division + "*");
+            Console.WriteLine(" \n El Resto de *" + numeroUno + "* entre" + " *" + numeroDos + "* es: *" + resto + "*");
+            Console.WriteLine(" \n La Potencia de *" + numeroUno + "* elevado a la" + " *" + numeroDos + "* es: *" + potencia + "*");
+
+            Console.WriteLine(" \n Si el resultado no fue el esperado es porque ignoró la recomendación e ingreso" +
+                              " un punto en vez de una coma");
+
 
             Validador.Despedida();
         }
